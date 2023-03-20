@@ -3,6 +3,10 @@
   console.log(`client-side: data: ${JSON.stringify(data, null, 4)}`);
 </script>
 
-<h1>Welcome to SvelteKit!!!</h1>
-<h2>{data.todos.title}</h2>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Products</h1>
+
+<ul>
+{#each data.products as product}
+  <li>{product.title}</li>
+{/each}
+</ul>
