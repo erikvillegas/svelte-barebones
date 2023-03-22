@@ -21,6 +21,5 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"shopify-buy": "^2.18.0"
 	}
 }
