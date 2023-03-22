@@ -1,5 +1,5 @@
 <script>
-  import Product from '../../components/Product/Product.svelte';
+  import Product from '../../components/Product.svelte';
   export let data;
 </script>
 
