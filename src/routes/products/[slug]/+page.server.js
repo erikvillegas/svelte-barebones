@@ -5,6 +5,7 @@ export const load = (async ({ params }) => {
   query {
     product(handle: "${params.slug}") {
       title
+      description
       slug: metafield(namespace: "custom", key: "slug") {
         value
       }
@@ -27,6 +28,7 @@ export const load = (async ({ params }) => {
   return {
     product: {
       title: product.title,
+      description: product.description,
       image: product.images.edges[0].node.originalSrc,
       slug: product.slug.value
     }
