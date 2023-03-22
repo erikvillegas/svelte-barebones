@@ -4,7 +4,7 @@ export const load = (async () => {
 
   let query = `
   {
-    products(first: 3) {
+    products(first: 30) {
       edges {
         node {
           id
@@ -27,7 +27,11 @@ export const load = (async () => {
   `;
 
   const json = await shopify.graph(query);
-  const products = json.data.products.edges.map(edge => edge.node);
+  let products = json.data.products.edges.map(edge => edge.node);
+  products = products.filter(product => product.images.edges.length > 0);
+
+  console.log(`products: ${JSON.stringify(products, null, 4)}`);
+  
 
   return {
     products: products.map(product => {
@@ -38,4 +42,4 @@ export const load = (async () => {
       }
     })
   };
-});
+}); 
